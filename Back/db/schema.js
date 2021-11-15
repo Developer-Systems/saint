@@ -53,6 +53,8 @@ const typeDefs = gql`
 
         #Productos
         nuevoProducto(input: ProductoInput): Producto
+        actualizarProducto( id: ID!, input : ProductInput ) : Producto
+        eliminarProducto( id: ID!) : String
     }
 
 `;
