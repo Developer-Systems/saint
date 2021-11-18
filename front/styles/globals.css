@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+bg-black {
+  background-color: #100e17;
+}
+text-green{
+  color:#18d26e;
+}
