@@ -47,4 +47,8 @@ const Index = () => {
     </div>
   );
 };
+<<<<<<< HEAD
 export default Index;
+=======
+export default Index;
+>>>>>>> 61ecd030b1ea78de7626adf79a7aea7771986490
