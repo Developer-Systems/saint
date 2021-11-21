@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 // Schema
 const typeDefs = gql`
-    
+
     type Usuario {
         id: ID
         nombre: String
@@ -77,8 +77,8 @@ const typeDefs = gql`
 
     input PedidoProductoInput{
         id: ID
-        cantidad: Int  
-    } 
+        cantidad: Int
+    }
 
     input PedidoInput{
         pedido: [PedidoProductoInput]
@@ -105,6 +105,9 @@ const typeDefs = gql`
         obtenerClientes: [Cliente]
         obtenerClientesVendedor: [Cliente]
         obtenerCliente(id: ID!): Cliente
+
+        #Pedidos
+        obtenerPedidos: [Pedido]
     }
 
     type Mutation{
