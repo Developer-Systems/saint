@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
         <link
           href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
           <div className="flex min-h-screen">
             <Sidebar />
 
-            <main className="sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
+            <main className="w-full sm:min-h-screen p-5">
               {children}
             </main>
           </div>
