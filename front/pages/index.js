@@ -1,9 +1,7 @@
 import Layout from "../components/Layout";
-import { gql, usequery } from "@apollo/cliente";
-import {useRouter} from ' next/router';
-import Link from 'next/link'
-
-
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const OBTENER_CLIENTES_USUARIO = gql`
   query obtenerClientesVendedor {
@@ -18,10 +16,7 @@ const OBTENER_CLIENTES_USUARIO = gql`
 `;
 
 const Index = () => {
-
   const router = useRouter();
-
-
 
   //consulta de apollo
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
@@ -30,19 +25,19 @@ const Index = () => {
   console.log(error);
 
   if (loading) return "Cargando...";
-  if(!data.obtenerClientesVendedor) {
-    return router.push('/login');
+  if (!data.obtenerClientesVendedor) {
+    return router.push("/login");
   }
-
 
   return (
     <div>
       <Layout>
         <h1 className="text-2xl text-white font-light">Clientes</h1>
-        <Link href ="/nuevocliente">
-          <a className="bg-blue-800 py-2 px-5 mt-3 inline-block text-white round text-sm hover:bg-gray-800 mb-3 uppercase font-bold ">Nuevo Cliente</a>
+        <Link href="/nuevocliente">
+          <a className="bg-blue-800 py-2 px-5 mt-3 inline-block text-white round text-sm hover:bg-gray-800 mb-3 uppercase font-bold ">
+            Nuevo Cliente
+          </a>
         </Link>
-
 
         <table className="table-auto shadow-md mt-10 w-full w-lg">
           <thead className=" bg-gray-800">
@@ -55,12 +50,8 @@ const Index = () => {
           </thead>
 
           <tbody className="bg-white">
-            {data.obtenerClientesVendedor.map(cliente => (
-              <tr key={cliente.id}>
-                <td className="border px-4 py2">{cliente.nombre} {cliente.apellido}</td>
-                <td className="border px-4 py2">{cliente.empresa}</td>
-                <td className="border px-4 py2">{cliente.email}</td>
-              </tr>
+            {data.obtenerClientesVendedor.map((cliente) => (
+              <Cliente key={cliente.id} cliente={cliente} />
             ))}
           </tbody>
         </table>
@@ -68,8 +59,4 @@ const Index = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 export default Index;
-=======
-export default Index;
->>>>>>> 61ecd030b1ea78de7626adf79a7aea7771986490
