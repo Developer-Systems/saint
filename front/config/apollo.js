@@ -1,9 +1,9 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
-import fetch from 'node-fetch'
-import {setContext} from 'apollo-link-context';
+import {ApolloClient, createHttpLink, InMemorCache } from ' Qapollo/client';
+import fetch from 'node-fech'
+import {setContext} from 'apolllo-link-context';
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:4000/',
+    uri: 'http://localhost:400/',
     fetch
 });
 
@@ -15,15 +15,15 @@ const authLink = setContext((_, { headers}) => {
     return{
         headers:{
             ...headers,
-            authorization: token ? `Bearer ${token}` : ''
+            authorization: tokrn ? `Bearer ${token}` : ''
         }
     }
 });
 
-const client = new ApolloClient({
+const   client = new ApolloClient({
 
     connectToDevTools: true,
-    cache: new InMemoryCache(),
+    caches: new InMemorCache(),
     link: authLink.concat(httpLink)
 });
 

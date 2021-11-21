@@ -1,214 +1,176 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
+import React, {useState} from "react";
+import{ useRouter } from 'next/router';
 import Layout from "../components/Layout";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useFormik} from 'formik';
+import * as Yup from 'yup';
 import { useMutation, gql } from "@apollo/client";
 
+
 const NUEVA_CUENTA = gql`
-  mutation nuevoUsuario($input: UsuarioInput) {
-    nuevoUsuario(input: $input) {
-      id
-      nombre
-      apellido
-      email
+    mutation nuevoUsuario($input: UsuarioInput){
+      nuevoUsuario(input: $input) {
+        id
+        nombre
+        apellido
+        email
+      }
     }
-  }
 `;
 
-const NuevaCuenta = () => {
-  //State para emnsaje
-  const [mensaje, guardarMensaje] = useState(null);
 
-  // Mutation para crear nuevos usuarios
-  const [nuevoUsuario] = useMutation(NUEVA_CUENTA);
+const NuevaCuenta= () => {
+
+  //State para emnsaje 
+  const[mensaje, guardarMensaje] = useState(null)
+
+
+  // Mutation para crear nuevos usuarios 
+  const [ nuevoUsuario ] = useMutation(NUEVA_CUENTA);
 
   //routing
   const router = useRouter();
 
+ 
+
   //validacion de formulario
-  const formik = useFormik({
-    initialValues: {
-      nombre: "",
-      apellido: "",
-      email: "",
-      password: "",
+  const formik = useFormik ({
+    initialValues:{
+      nombre: '' ,
+      apellido : '' ,
+      email: '',
+      password: ''
     },
     validationSchema: Yup.object({
-      nombre: Yup.string().required("El Nombre es Obligatorio"),
-      apellido: Yup.string().required("El Apeliido es Obligatorio"),
+      nombre: Yup.string()
+                  .required('El Nombre es Obligatorio'),
+      apellido: Yup.string()
+                  .required('El Apeliido es Obligatorio'),
       email: Yup.string()
-        .email("El email no es valido")
-        .required("El email es Obligatorio"),
+                  .email('El email no es valido')
+                  .required('El email es Obligatorio'),
       password: Yup.string()
-        .required("El Password no puede ir vacio")
-        .min(6, "El password debe ser de al menos 6 caracteres"),
+                  .required('El Password no puede ir vacio')
+                  .min(6,'El password debe ser de al menos 6 caracteres')
     }),
-    onSubmit: async (valores) => {
+    onSubmit: async valores => {
       //console.log("enviando");
       //console.log(valores);
 
-      const { nombre, apellido, email, password } = valores;
+      const{nombre, apellido, email, password } = valores
 
       try {
         const { data } = await nuevoUsuario({
           variables: {
-            input: {
-              nombre,
+            input:{
+              nombre, 
               apellido,
               email,
-              password,
-            },
-          },
+              password
+            }
+           }
         });
         console.log(data);
 
-        // Usuario creado correctamente
-        // Redirigir ususario para iniciar sesion
-        guardarMensaje(
-          `Se creo correctamente el ususario: ${data.nuevoUsuario.nombre}`
-        );
+        // Usuaerio creado correctamente 
+        // Redirigir ususario para iniciar sesion 
+        guardarMensaje(`se creo correctamenteel ususario: ${data.nuevoUsuario.nombre}`);
 
-        setTimeout(() => {
+        setTimeout(()=>{
           guardarMensaje(null);
-          router.push("/login");
-        }, 3000);
+          router.push('/login')
+        },3000);
+         
       } catch (error) {
-        guardarMensaje(error.menssage.replace("GraphQL error:", ""));
+        guardarMensaje(error.menssage.replace('GraphQL error:',''));
 
         setTimeout(() => {
           guardarMensaje(null);
         }, 3000);
       }
-    },
+    }
   });
 
-  //if(loading ) return 'cargando...'
-  const mostrarMensaje = () => {
-    return (
-      <div className="bg-white py-2 px-3 w-full my-3 max-w-sm text-center">
-        <p>{mensaje}</p>
+
+ //if(loading ) return 'cargando...'
+  const mostratMensaje = () => {
+    return(
+      <div className = "bg-white py-2 px-3 w-full my-3 max-w-sm text-center">
+          <p>{mensaje}</p>
       </div>
-    );
-  };
+    )
+  }
+
 
   return (
     <div>
       <Layout>
-        {mensaje && mostrarMensaje()}
+        {mensaje && mostratmensaje() }
 
-        <h1 className="text-center text-2xl text-white font-bold">
-          Crear Nueva Cuenta
-        </h1>
-        <div className="flex justify-center mt-5 ">
+        <h1 className="text-center text-2xl text-white font-bold">Crear Nueva Cuenta</h1>
+        <div className="flex justify-center mt-5 "> 
           <div className="w-full max-w-sm">
-            <form
-              className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
-              onSubmit={formik.handleSubmit}
-            >
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm  font-bold mb-2"
-                  htmlFor="nombre"
-                >
+            <form className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4" onSubmit={formik.handleSubmit}>
+              
+              <div className= "mb-4">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="nombre">
                   Nombre
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "
-                  id="nombre"
-                  type="text"
-                  placeholder="Nombre Usuario"
-                  value={formik.values.nombre}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
+                </label>    
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="nombre" type="text" placeholder="Nombre Usuario" value={ formik.values.nombre} onChane={formik.handleChange} onBlur={formik.handleBlur}/>
               </div>
 
               {formik.touched.nombre && formik.errors.nombre ? (
-                <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
+                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
+                  <a className ="font-bold">Error</a>
                   <a>(formik.error.nombre)</a>
                 </div>
-              ) : null}
+              ): null }
 
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm  font-bold mb-2"
-                  htmlFor="apellido"
-                >
+              <div className= "mb-4">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="apellido">
                   Apellido
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "
-                  id="apellido"
-                  type="text"
-                  placeholder="Apellido Usuario"
-                  value={formik.values.apellido}
-                  onChange={formik.handleChange}
-                />
+                </label>    
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="apellido" type="text" placeholder="Apellido Usuario"value={ formik.values.apellido} onChane={formik.handleChange}/>
               </div>
 
               {formik.touched.apellido && formik.errors.apellido ? (
-                <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
+                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
+                  <a className ="font-bold">Error</a>
                   <a>(formik.error.apellido)</a>
                 </div>
-              ) : null}
+              ): null }
 
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm  font-bold mb-2"
-                  htmlFor="nombre"
-                >
+              <div className= "mb-4">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="nombre">
                   Email
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "
-                  id="email"
-                  type="email"
-                  placeholder="Email Usuario"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                />
+                </label>    
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="email" type="email" placeholder="Email Usuario" value={ formik.values.email} onChane={formik.handleChange}/>
               </div>
 
               {formik.touched.email && formik.errors.email ? (
-                <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
+                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
+                  <a className ="font-bold">Error</a>
                   <a>(formik.error.email)</a>
                 </div>
-              ) : null}
+              ): null }
 
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm  font-bold mb-2"
-                  htmlFor="password"
-                >
+              <div className ="mb-4">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="password">
                   Password
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "
-                  id="password"
-                  type="password"
-                  placeholder="Password Usuario"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                />
+                </label>    
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="password" type="password" placeholder="Password Usuario" value={ formik.values.password} onChane={formik.handleChange}/>
               </div>
 
               {formik.touched.password && formik.errors.password ? (
-                <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
+                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
+                  <a className ="font-bold">Error</a>
                   <a>(formik.error.Password)</a>
                 </div>
-              ) : null}
+              ): null }
 
-              <input
-                type="submit"
-                className="bg-gray-800 w-full mt-5 p-2 text-white uppercas hover:bg-gray-900"
-                value="Crear Cuenta"
-              />
+              <input type="submit" className="bg-gray-800 w-full mt-5 p-2 text-white uppercas hover:bg-gray-900" value="Crear Cuenta"/>
+
             </form>
+
           </div>
         </div>
       </Layout>
