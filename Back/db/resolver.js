@@ -219,11 +219,9 @@ const resolvers = {
       return "Cliente eliminado";
     },
 
-
-
-    nuevoPedido: async(_, {input}, ctx) => { 
+    nuevoPedido: async(_, {input}, ctx) => {
       const {cliente } = input
-      
+
       //Verificar que el cliente exista
       let clienteExiste = await Cliente.findById(id);
       if (!clienteExiste){
@@ -235,7 +233,7 @@ const resolvers = {
         throw new Error('No tienes las credenciales');
       }
 
-      //Revisar q el stock esté disponible 
+      //Revisar q el stock esté disponible
       for await( const articulo of input.pedido){
         const {id } = articulo;
         const producto = await Producto.findById(id);
@@ -258,9 +256,48 @@ const resolvers = {
       //Guardarlo en la base de datos
       const resultado = await nuevoPedido.save();
       return resultado;
+    },
+    actualizarPedido: async(_, {id, input}, ctx) => {
+
+      const { cliente } = input;
+
+      // Si el pedido existe
+      const existePedido = await Pedido.findById(id);
+      if (!existePedido) {
+        throw new Error('El pedido no existe');
+      }
+
+      // Si el cliente existe
+      const existeCliente = await Cliente.findById(cliente);
+      if (!existeCliente) {
+        throw new Error('El cliente no existe');
+      }
+
+      // Si el cliente y pedido pertenecen al vendedor
+      if (existeCliente.vendedor.toString() !== ctx.usuario.id) {
+        throw new Error("No tienes credenciales");
+      }
+
+      // Revisar el stock
+      if (input.pedido) {
+        for await( const articulo of input.pedido){
+          const { id } = articulo;
+          const producto = await Producto.findById(id);
+          if (articulo.cantidad > producto.existencia) {
+            throw new Error(`El articulo: ${producto.nombre} excede la cantidad disponible`);
+          }else{
+            //Restar la cantidad pedida a la disponible --> importante
+            producto.existencia = producto.existencia-articulo.cantidad;
+            //Guardar en la base de datos la info actualizada
+            await producto.save();
+          }
+        }
+      }
+
+      // Guardar el pedido
+      const resultado = await Pedido.findOneAndUpdate({_id: id}, input, { new: true });
+      return resultado;
     }
-
-
   },
 };
 
