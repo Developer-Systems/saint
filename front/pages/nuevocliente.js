@@ -87,8 +87,13 @@ const NuevoCliente = () => {
           },
         });
         // console.log(data.nuevoCliente);
-
-        router.push("/"); //redireccionar hacia clientes
+        guardarMensaje(
+          `Se creo correctamente el cliente: ${data.nuevoCliente.nombre}`
+        );
+         setTimeout(() => {
+           guardarMensaje(null);
+           router.push("/"); //redireccionar hacia clientes
+         }, 3000);
       } catch (error) {
         guardarMensaje(error.menssage.replace("GraphQL error: ", ""));
         setTimeout(() => {
@@ -140,8 +145,8 @@ const NuevoCliente = () => {
 
             {formik.touched.nombre && formik.errors.nombre ? (
               <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                <a className="font-bold">Error</a>
-                <a>(formik.error.nombre)</a>
+                <p className="font-bold">Error</p>
+                <p>{formik.errors.nombre}</p>
               </div>
             ) : null}
 
@@ -165,8 +170,8 @@ const NuevoCliente = () => {
 
             {formik.touched.apellido && formik.errors.apellido ? (
               <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                <a className="font-bold">Error</a>
-                <a>(formik.error.apellido)</a>
+                <p className="font-bold">Error</p>
+                <p>{formik.errors.apellido}</p>
               </div>
             ) : null}
 
@@ -190,8 +195,8 @@ const NuevoCliente = () => {
 
             {formik.touched.empresa && formik.errors.empresa ? (
               <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                <a className="font-bold">Error</a>
-                <a>(formik.error.empresa)</a>
+                <p className="font-bold">Error</p>
+                <p>{formik.errors.empresa}</p>
               </div>
             ) : null}
 
@@ -215,8 +220,8 @@ const NuevoCliente = () => {
 
             {formik.touched.email && formik.errors.email ? (
               <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                <a className="font-bold">Error</a>
-                <a>(formik.error.email)</a>
+                <p className="font-bold">Error</p>
+                <p>{formik.errors.email}</p>
               </div>
             ) : null}
 

@@ -35,7 +35,7 @@ const Login = () => {
     validationSchema: Yup.object({
       email: Yup.string()
                         .email('El email no es valido')
-                        .required(' El email no puede estar vacio'),
+                        .required('El email no puede estar vacio'),
       password: Yup.string()
                           .required('El password es obligatorio')
     }),
@@ -114,8 +114,8 @@ const Login = () => {
 
               {formik.touched.email && formik.errors.email ? (
                 <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
-                  <a className ="font-bold">Error</a>
-                  <a>(formik.error.email)</a>
+                  <p className ="font-bold">Error</p>
+                  <p>{formik.errors.email}</p>
                 </div>
               ): null }
 
@@ -131,8 +131,8 @@ const Login = () => {
 
               {formik.touched.password && formik.errors.password ? (
                 <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
-                  <a className ="font-bold">Error</a>
-                  <a>(formik.error.Password)</a>
+                  <p className ="font-bold">Error</p>
+                  <p>{formik.errors.password}</p>
                 </div>
               ): null }
 
