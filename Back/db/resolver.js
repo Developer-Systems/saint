@@ -72,7 +72,7 @@ const resolvers = {
         console.log(error);
       }
     },
-    obtenerPedidosVendedor: async (_, {}, ctx) => {
+    obtenerPedidosVendedor: async (_, { }, ctx) => {
       try {
         const pedidos = await Pedido.find({vendedor: ctx.usuario.id});
         return pedidos;
@@ -267,13 +267,13 @@ const resolvers = {
       if (!cliente) {
         throw new Error("El cliente no existe");
       }
-      //verificar si el vendeor es el correcto
+      //verificar si el vendedor es el correcto
 
       if (cliente.vendedor.toString() !== ctx.usuario.id) {
         throw new Error("No tienes permisos para actualizar este cliente");
       }
       //eliminarlo de la base de datos
-      clientes = await Cliente.findOneAndDelete({ _id: id });
+      await Cliente.findOneAndDelete({ _id: id });
       return "Cliente eliminado";
     },
 

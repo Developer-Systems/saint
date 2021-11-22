@@ -25,7 +25,7 @@ const OBTENER_CLIENTES_USUARIO = gql`
       nombre
       apellido
       empresa
-      Email
+      email
     }
   }
 `;
@@ -86,7 +86,7 @@ const NuevoCliente = () => {
             },
           },
         });
-        // console.log( data.nuevoCliente);
+        // console.log(data.nuevoCliente);
 
         router.push("/"); //redireccionar hacia clientes
       } catch (error) {

@@ -74,7 +74,7 @@ const typeDefs = gql`
     input ClienteInput{
         nombre: String!
         apellido: String!
-        empresas: String!
+        empresa: String!
         email: String!
         telefono: String!
 
