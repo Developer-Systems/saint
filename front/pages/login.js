@@ -6,7 +6,7 @@ import { useMutation, gql } from "@apollo/client";
 import { useRouter } from 'next/router'
 
 const AUTENTICAR_USUARIO = gql`
-    mutation autenticarUsuario($input: AutenticarInout){
+    mutation autenticarUsuario($input: AutenticarInput){
       autenticarUsuario(input: $input){
         token
       }

@@ -17,7 +17,7 @@ const NUEVA_CUENTA = gql`
 `;
 
 const NuevaCuenta = () => {
-  //State para emnsaje
+  //State para mensaje
   const [mensaje, guardarMensaje] = useState(null);
 
   // Mutation para crear nuevos usuarios
@@ -35,14 +35,14 @@ const NuevaCuenta = () => {
       password: "",
     },
     validationSchema: Yup.object({
-      nombre: Yup.string().required("El Nombre es Obligatorio"),
-      apellido: Yup.string().required("El Apeliido es Obligatorio"),
+      nombre: Yup.string().required("El nombre es obligatorio"),
+      apellido: Yup.string().required("El apellido es obligatorio"),
       email: Yup.string()
-        .email("El email no es valido")
-        .required("El email es Obligatorio"),
+        .email("El email no es válido")
+        .required("El email es obligatorio"),
       password: Yup.string()
-        .required("El Password no puede ir vacio")
-        .min(6, "El password debe ser de al menos 6 caracteres"),
+        .required("La contraseña no puede ir vacía")
+        .min(6, "La contraseña debe ser de al menos 6 caracteres"),
     }),
     onSubmit: async (valores) => {
       //console.log("enviando");
@@ -86,7 +86,7 @@ const NuevaCuenta = () => {
   //if(loading ) return 'cargando...'
   const mostrarMensaje = () => {
     return (
-      <div className="bg-white py-2 px-3 w-full my-3 max-w-sm text-center">
+      <div className="bg-white py-2 px-3 w-full my-3 max-w-sm text-center mx-auto">
         <p>{mensaje}</p>
       </div>
     );
@@ -126,8 +126,8 @@ const NuevaCuenta = () => {
 
               {formik.touched.nombre && formik.errors.nombre ? (
                 <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
-                  <a>(formik.error.nombre)</a>
+                  <p className="font-bold">Error</p>
+                  <p>{formik.errors.nombre}</p>
                 </div>
               ) : null}
 
@@ -150,8 +150,8 @@ const NuevaCuenta = () => {
 
               {formik.touched.apellido && formik.errors.apellido ? (
                 <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
-                  <a>(formik.error.apellido)</a>
+                  <p className="font-bold">Error</p>
+                  <p>{formik.errors.apellido}</p>
                 </div>
               ) : null}
 
@@ -174,8 +174,8 @@ const NuevaCuenta = () => {
 
               {formik.touched.email && formik.errors.email ? (
                 <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
-                  <a>(formik.error.email)</a>
+                  <p className="font-bold">Error</p>
+                  <p>{formik.errors.email}</p>
                 </div>
               ) : null}
 
@@ -198,15 +198,15 @@ const NuevaCuenta = () => {
 
               {formik.touched.password && formik.errors.password ? (
                 <div className=" my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
-                  <a className="font-bold">Error</a>
-                  <a>(formik.error.Password)</a>
+                  <p className="font-bold">Error</p>
+                  <p>{formik.errors.password}</p>
                 </div>
               ) : null}
 
               <input
                 type="submit"
                 className="bg-gray-800 w-full mt-5 p-2 text-white uppercas hover:bg-gray-900"
-                value="Crear Cuenta"
+                value="Crear cuenta"
               />
             </form>
           </div>

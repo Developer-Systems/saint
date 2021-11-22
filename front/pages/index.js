@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import Cliente from "../components/Cliente";
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -6,11 +7,11 @@ import Link from "next/link";
 const OBTENER_CLIENTES_USUARIO = gql`
   query obtenerClientesVendedor {
     obtenerClientesVendedor {
-      id
       nombre
       apellido
       empresa
       email
+      id
     }
   }
 `;
@@ -40,7 +41,7 @@ const Index = () => {
         </Link>
 
         <table className="table-auto shadow-md mt-10 w-full w-lg">
-          <thead className=" bg-gray-800">
+          <thead className="bg-gray-800">
             <tr className="text-white">
               <th className="w-1/5 py-2">Nombre</th>
               <th className="w-1/5 py-2">Empresa</th>
