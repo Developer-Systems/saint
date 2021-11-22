@@ -30,12 +30,12 @@ const Login = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
     },
     validationSchema: Yup.object({
       email: Yup.string()
                         .email('El email no es valido')
-                        .reuiered(' El email no puede estar vacio'),
+                        .required(' El email no puede estar vacio'),
       password: Yup.string()
                           .required('El password es obligatorio')
     }),
@@ -79,7 +79,7 @@ const Login = () => {
     }
   })
 
-  const mostratMensaje = () => {
+  const mostrarMensaje = () => {
     return(
       <div className = "bg-white py-2 px-3 w-full my-3 max-w-sm text-center">
           <p>{mensaje}</p>
@@ -93,7 +93,7 @@ const Login = () => {
       <Layout>
         <h1 className="text-center text-2xl text-white font-bold">Inicio de sesión</h1>
 
-        {mensaje && mostratMensaje() }
+        {mensaje && mostrarMensaje() }
 
         <div className="flex justify-center mt-5 "> 
           <div className="w-full max-w-sm">
@@ -102,11 +102,11 @@ const Login = () => {
               onSubmit ={formik.handleSubmit}>
             
               <div className= "mb-4">
-                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="email">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlFor="email">
                   Email
                 </label>    
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="email" type="email" placeholder="Email Usuario"  
-                onChange ={formik.handleChange } 
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="email" type="email" placeholder="Correo del usuario"  
+                onChange ={formik.handleChange} 
                 onBlur = {formik.handleBlur}
                 value={formik.values.email}
                 />
@@ -120,11 +120,11 @@ const Login = () => {
               ): null }
 
               <div className ="mb-4">
-                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlfor="password">
+                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlFor="password">
                   Password
                 </label>    
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="password" type="password" placeholder="Password Usuario"
-                onChange ={formik.handleChange } 
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="password" type="password" placeholder="Contraseña del usuario"
+                onChange ={formik.handleChange} 
                 onBlur = {formik.handleBlur}
                 value={formik.values.password} />
               </div>
