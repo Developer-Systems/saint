@@ -93,7 +93,7 @@ const NuevoCliente = () => {
          setTimeout(() => {
            guardarMensaje(null);
            router.push("/"); //redireccionar hacia clientes
-         }, 3000);
+         }, 2000);
       } catch (error) {
         guardarMensaje(error.menssage.replace("GraphQL error: ", ""));
         setTimeout(() => {
@@ -136,7 +136,7 @@ const NuevoCliente = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "
                 id="nombre"
                 type="text"
-                placeholder="Nombre Cliente"
+                placeholder="Nombre del cliente"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.nombre}
