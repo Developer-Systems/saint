@@ -16,7 +16,7 @@ const crearToken = (usuario, secret, expiresIn) => {
 // Resolver
 const resolvers = {
   Query: {
-    obtenerUsuarios: async (_, {}, ctx) => {
+    obtenerUsuario: async (_, {}, ctx) => {
       return ctx.usuario;
     },
     obtenerProductos: async () => {
@@ -27,7 +27,7 @@ const resolvers = {
         console.log(error);
       }
     },
-    obtenerProductos: async (_, { id }) => {
+    obtenerProducto: async (_, { id }) => {
       const producto = await Producto.findById(id);
       if (!producto) {
         throw new Error("Producto no encontrado");
@@ -217,7 +217,7 @@ const resolvers = {
         throw new Error("El producto no ha sido encontrado");
       }
       //Existe --> Se guarda en la base de datos
-      producto = await Producto.findAndUpdate({ _id: id }, input, {
+      producto = await Producto.findOneAndUpdate({ _id: id }, input, {
         new: true,
       });
       return producto;
@@ -229,7 +229,7 @@ const resolvers = {
         throw new Error("El producto no ha sido encontrado");
       }
       //Existe --> Se elimina de la base de datos
-      await Producto.findAndDelete({ _id: id });
+      await Producto.findOneAndDelete({ _id: id });
       return "Producto eliminado";
     },
     nuevoCliente: async (_, { input }, ctx) => {

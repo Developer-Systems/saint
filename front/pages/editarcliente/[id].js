@@ -58,7 +58,7 @@ const EditarCliente = () => {
   });
 
   if (loading) return "Cargando...";
-  console.log(data.obtenerCliente);
+  // console.log(data.obtenerCliente);
   //  console.log(error);
 
   const { obtenerCliente } = data;
@@ -96,7 +96,7 @@ const EditarCliente = () => {
   return (
     <Layout>
       <h1 className="text-2xl text-white font-light text-center">
-        Editar Cliente
+        Editar cliente
       </h1>
       <div className="flex justify-center item-center mt-5">
         <div className="w-full max-w-lg">

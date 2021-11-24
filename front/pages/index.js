@@ -7,11 +7,11 @@ import Link from "next/link";
 const OBTENER_CLIENTES_USUARIO = gql`
   query obtenerClientesVendedor {
     obtenerClientesVendedor {
+      id
       nombre
       apellido
       empresa
       email
-      id
     }
   }
 `;
@@ -21,9 +21,9 @@ const Index = () => {
 
   //consulta de apollo
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
-  console.log(data);
-  console.log(loading);
-  console.log(error);
+  // console.log(data);
+  // console.log(loading);
+  // console.log(error);
 
   if (loading) return "Cargando...";
   if (!data.obtenerClientesVendedor) {
@@ -36,7 +36,7 @@ const Index = () => {
         <h1 className="text-2xl text-white font-light">Clientes</h1>
         <Link href="/nuevocliente">
           <a className="bg-blue-800 py-2 px-5 mt-3 inline-block text-white round text-sm hover:bg-gray-800 mb-3 uppercase font-bold ">
-            Nuevo Cliente
+            Nuevo cliente
           </a>
         </Link>
 
