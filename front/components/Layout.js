@@ -23,11 +23,11 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         ></link>
       </Head>
-      {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+      {/* {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
-      ):null}
+      ):null} */}
       {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
