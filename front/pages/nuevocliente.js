@@ -92,7 +92,7 @@ const NuevoCliente = () => {
         );
          setTimeout(() => {
            guardarMensaje(null);
-           router.push("/"); //redireccionar hacia clientes
+           router.push("/clientes"); //redireccionar hacia clientes
          }, 2000);
       } catch (error) {
         guardarMensaje(error.menssage.replace("GraphQL error: ", ""));

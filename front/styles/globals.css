@@ -27,5 +27,18 @@ text-green{
   background-size: cover;
   background-position: center;
   height: 100vh;
+
+}
+.bg-404{
+  background-image: url('../public/images/error.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   
+}
+
+.text-15xl {
+  font-size: 15rem;
+  line-height: 1;
 }
