@@ -38,9 +38,6 @@ const EditarProducto = () => {
       id,
     },
   });
-  //   console.log(data);
-  //   console.log(loading);
-  //   console.log(error);
 
   // Mutacion para editar el producto
   const [actualizarProducto] = useMutation(ACTUALIZAR_PRODUCTO);
@@ -75,7 +72,6 @@ const EditarProducto = () => {
           },
         },
       });
-      //   console.log(data);
       //Redirigir hacia productos
       router.push("/productos");
       //Mostrar alerta

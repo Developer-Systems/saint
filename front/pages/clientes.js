@@ -24,8 +24,9 @@ const Index = () => {
 
   if (loading) return "Cargando...";
   if (!data.obtenerClientesVendedor) {
-    return router.push("/login") ;
+    return router.push("/") ;
   }
+  if (error) return `Error ${error.message}`;
 
   return (
     <div>

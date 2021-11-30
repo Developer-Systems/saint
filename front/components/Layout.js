@@ -23,17 +23,13 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         ></link>
       </Head>
-      {/* {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+      {router.pathname === "/" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
-      ):null} */}
-      {router.pathname === "/" || router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
-        <div className="bg-image min-h-screen flex flex-col justify-center ">
-          <div>{children}</div>
-        </div>
-      ) : (
-        <div className="bg-gray-500 min-h-screen">
+      ): null} 
+      {router.pathname === "/clientes" ? (
+        <div className="bg-clientes bg-gray-500 min-h-screen">
           <div className="flex min-h-screen">
             <Sidebar />
 
@@ -43,7 +39,31 @@ const Layout = ({ children }) => {
             </main>
           </div>
         </div>
-      )}
+      ):null}
+       {router.pathname === "/productos" ? (
+        <div className="bg-productos bg-gray-500 min-h-screen">
+          <div className="flex min-h-screen">
+            <Sidebar />
+
+            <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
+              <Header/>
+              {children}
+            </main>
+          </div>
+        </div>
+      ):null}
+       {router.pathname === "/pedidos" ? (
+        <div className="bg-pedidos bg-gray-500 min-h-screen">
+          <div className="flex min-h-screen">
+            <Sidebar />
+
+            <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
+              <Header/>
+              {children}
+            </main>
+          </div>
+        </div>
+      ):null}
     </div>
   );
 };
