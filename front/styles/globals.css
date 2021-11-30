@@ -20,3 +20,12 @@ bg-black {
 text-green{
   color:#18d26e;
 }
+
+.bg-image{
+  background-image: url('../public/images/back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  
+}

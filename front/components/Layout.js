@@ -24,11 +24,16 @@ const Layout = ({ children }) => {
         ></link>
       </Head>
       {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
-        <div className="bg-black min-h-screen flex flex-col justify-center ">
+        <div className="bg-image min-h-screen flex flex-col justify-center ">
+          <div>{children}</div>
+        </div>
+      ):null}
+      {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+        <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
       ) : (
-        <div className="bg-black min-h-screen">
+        <div className="bg-gray-500 min-h-screen">
           <div className="flex min-h-screen">
             <Sidebar />
 
