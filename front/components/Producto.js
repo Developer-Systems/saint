@@ -81,50 +81,20 @@ Router.push({
       <td className="border px-4 py-2">{nombre}</td>
       <td className="border px-4 py-2">{existencia} Unidades</td>
       <td className="border px-4 py-2">$ {precio}</td>
-      <td className="border px-4 py-2">
+      <td className="border px-4 py-2 flex justify-center">
         <button
           type="buttom"
-          className="flex justify-center item-center bg-red-800 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold"
+          className="flex justify-center justify-items-center bg-red-800 py-3 mr-1 w-10 text-white rounded text-l font-bold"
           onClick={() => confirmarEliminarProducto()}
         >
-          Eliminar
-          <svg
-            className="w-4 h-4 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
+          <i class="fas fa-trash-alt"></i>
         </button>
-      </td>
-      <td className="border px-4 py-2">
         <button
           type="buttom"
-          className="flex justify-center item-center bg-green-600 py-2 px-4 w-full text-white rounded text-xs uppercase font-bold"
+          className="flex justify-center justify-items-center bg-green-600 py-3 ml-1 w-10 text-white rounded text-l font-bold"
           onClick={() => editarProducto()}
         >
-          Editar
-          <svg
-            className="w-4 h-4 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-            ></path>
-          </svg>
+         <i class="fas fa-edit"></i>
         </button>
       </td>
     </tr>

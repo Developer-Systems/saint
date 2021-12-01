@@ -12,14 +12,14 @@ const Sidebar = () => {
         <p className="text-black text-2xl font-black px-5"> SAINT </p>
       </div>
       <nav className="mt-5 list-none">
-        <li className={router.pathname === "/clientes" ? "bg-green-500 p-2" : "p-2"}>
+        <li className={router.pathname === "/clientes" ? "bg-blue-800	 p-2 text-white" : "p-2"}>
           <Link href="/clientes">
             <a className="text-bold font-black my-2 block px-5"> Clientes </a>
           </Link>
         </li>
         <li
           className={
-            router.pathname === "/pedidos" ? "bg-green-500 p-2" : "p-2"
+            router.pathname === "/pedidos" ? "bg-blue-800	p-2 text-white" : "p-2"
           }
         >
           <Link href="/pedidos">
@@ -28,7 +28,7 @@ const Sidebar = () => {
         </li>
         <li
           className={
-            router.pathname === "/productos" ? "bg-green-500 p-2" : "p-2"
+            router.pathname === "/productos" ? "bg-blue-800	p-2 text-white" : "p-2"
           }
         >
           <Link href="/productos">
