@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           <div>{children}</div>
         </div>
       ):null} */}
-      {router.pathname === "/" || router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+      {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>

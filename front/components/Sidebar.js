@@ -14,6 +14,7 @@ const Sidebar = () => {
       <nav className="mt-5 list-none">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <li className={router.pathname === "/clientes" ? "bg-blue-800	 p-2 text-white" : "p-2"}>
 =======
         <li className={router.pathname === "/clientes" ? "bg-green-500 p-2" : "p-2"}>
@@ -25,6 +26,11 @@ const Sidebar = () => {
           <Link href="/">
             <a className="text-bold font-black mb-2 block"> Clientes </a>
 >>>>>>> parent of 33c329e (mejoras en el front-end)
+=======
+        <li className={router.pathname === "/" ? "bg-green-500 p-2" : "p-2"}>
+          <Link href="/">
+            <a className="text-bold font-black mb-2 block px-5"> Clientes </a>
+>>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
           </Link>
         </li>
         <li
@@ -34,10 +40,14 @@ const Sidebar = () => {
         >
           <Link href="/pedidos">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a className="text-bold font-black my-2 block px-5"> Pedidos </a>
 =======
             <a className="text-bold font-black mb-2 block"> Pedidos </a>
 >>>>>>> parent of 33c329e (mejoras en el front-end)
+=======
+            <a className="text-bold font-black mb-2 block px-5"> Pedidos </a>
+>>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
           </Link>
         </li>
         <li
@@ -47,10 +57,14 @@ const Sidebar = () => {
         >
           <Link href="/productos">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a className="text-bold font-black my-2 block px-5"> Productos </a>
 =======
             <a className="text-bold font-black mb-2 block"> Productos </a>
 >>>>>>> parent of 33c329e (mejoras en el front-end)
+=======
+            <a className="text-bold font-black mb-2 block px-5"> Productos </a>
+>>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
           </Link>
         </li>
       </nav>

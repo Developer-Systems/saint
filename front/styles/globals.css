@@ -28,15 +28,8 @@ text-green{
   background-size: cover;
   background-position: center;
   height: 100vh;
-
-}
-.bg-404{
-  background-image: url('../public/images/error.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
   
+<<<<<<< HEAD
 }
 
 .text-15xl {
@@ -45,3 +38,6 @@ text-green{
 }
 =======
 >>>>>>> parent of 33c329e (mejoras en el front-end)
+=======
+}
+>>>>>>> parent of b399220 (Correccion de ruta de login y clientes)

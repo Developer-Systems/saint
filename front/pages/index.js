@@ -1,20 +1,25 @@
-import React, {useState} from "react";
 import Layout from "../components/Layout";
-import {useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useMutation, gql } from "@apollo/client";
-import { useRouter } from 'next/router'
+import Cliente from "../components/Cliente";
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-const AUTENTICAR_USUARIO = gql`
-    mutation autenticarUsuario($input: AutenticarInput){
-      autenticarUsuario(input: $input){
-        token
-      }
+const OBTENER_CLIENTES_USUARIO = gql`
+  query obtenerClientesVendedor {
+    obtenerClientesVendedor {
+      id
+      nombre
+      apellido
+      empresa
+      email
     }
-
+  }
 `;
 
+const Index = () => {
+  const router = useRouter();
 
+<<<<<<< HEAD
 const Login = () => {
 
 
@@ -93,67 +98,45 @@ const Login = () => {
           <p>{mensaje}</p>
       </div>
     )
-  }
+=======
+  //consulta de apollo
+  const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
 
+  if (loading) return "Cargando...";
+  if (!data.obtenerClientesVendedor) {
+    return router.push("/login");
+>>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
+  }
 
   return (
     <div>
       <Layout>
-        <h1 className="text-center text-2xl text-white font-bold">Inicio de sesión</h1>
+        <h1 className="text-2xl text-white font-light">Clientes</h1>
+        <Link href="/nuevocliente">
+          <a className="bg-blue-800 py-2 px-5 mt-3 inline-block text-white round text-sm hover:bg-gray-800 mb-3 uppercase font-bold ">
+            Nuevo cliente
+          </a>
+        </Link>
 
-        {mensaje && mostrarMensaje() }
+        <table className="table-auto shadow-md mt-10 w-full w-lg">
+          <thead className="bg-gray-800">
+            <tr className="text-white">
+              <th className="w-1/5 py-2">Nombre</th>
+              <th className="w-1/5 py-2">Empresa</th>
+              <th className="w-1/5 py-2">Email</th>
+              <th className="w-1/5 py-2">Eliminar</th>
+              <th className="w-1/5 py-2">Editar</th>
+            </tr>
+          </thead>
 
-        <div className="flex justify-center mt-5 "> 
-          <div className="w-full max-w-sm">
-
-            <form className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
-              onSubmit ={formik.handleSubmit}>
-            
-              <div className= "mb-4">
-                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlFor="email">
-                  Email
-                </label>    
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="email" type="email" placeholder="Correo del usuario"  
-                onChange ={formik.handleChange} 
-                onBlur = {formik.handleBlur}
-                value={formik.values.email}
-                />
-              </div>
-
-              {formik.touched.email && formik.errors.email ? (
-                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
-                  <p className ="font-bold">Error</p>
-                  <p>{formik.errors.email}</p>
-                </div>
-              ): null }
-
-              <div className ="mb-4">
-                <label className="block text-gray-700 text-sm  font-bold mb-2" htmlFor="password">
-                  Password
-                </label>    
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus: outline-none focus:shadow-outline  "  id="password" type="password" placeholder="Contraseña del usuario"
-                onChange ={formik.handleChange} 
-                onBlur = {formik.handleBlur}
-                value={formik.values.password} />
-              </div>
-
-              {formik.touched.password && formik.errors.password ? (
-                <div className = " my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4" > 
-                  <p className ="font-bold">Error</p>
-                  <p>{formik.errors.password}</p>
-                </div>
-              ): null }
-
-
-              <input type="submit" className="bg-gray-800 w-full mt-5 p-2 text-white uppercas hover:bg-gray-900" value="Iniciar Sesión"/>
-
-            </form>
-
-          </div>
-        </div>
+          <tbody className="bg-white">
+            {data.obtenerClientesVendedor.map((cliente) => (
+              <Cliente key={cliente.id} cliente={cliente} />
+            ))}
+          </tbody>
+        </table>
       </Layout>
     </div>
   );
 };
-
-export default Login;
+export default Index;
