@@ -25,6 +25,9 @@ const Layout = ({ children }) => {
       </Head>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 918c1a0 (revert 3)
       {router.pathname === "/" || router.pathname === "/nuevacuenta" ? (
 =======
       {/* {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
@@ -41,6 +44,7 @@ const Layout = ({ children }) => {
       ):null}
        {router.pathname === "/pedidos" ? (
         <div className="bg-pedidos bg-gray-500 min-h-screen">
+<<<<<<< HEAD
 =======
       {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-black min-h-screen flex flex-col justify-center ">
@@ -53,6 +57,8 @@ const Layout = ({ children }) => {
       ) : (
         <div className="bg-gray-500 min-h-screen">
 >>>>>>> parent of 854e32b (Correccion front para imagenes)
+=======
+>>>>>>> parent of 918c1a0 (revert 3)
           <div className="flex min-h-screen">
             <Sidebar />
 

@@ -20,7 +20,6 @@ bg-black {
 text-green{
   color:#18d26e;
 }
-<<<<<<< HEAD
 
 .bg-image{
   background-image: url('../public/images/back.png');
@@ -35,9 +34,13 @@ text-green{
 .text-15xl {
   font-size: 15rem;
   line-height: 1;
+<<<<<<< HEAD
 }
 =======
 >>>>>>> parent of 33c329e (mejoras en el front-end)
 =======
 }
 >>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
+=======
+}
+>>>>>>> parent of 918c1a0 (revert 3)
