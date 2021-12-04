@@ -24,34 +24,20 @@ const Layout = ({ children }) => {
         ></link>
       </Head>
 <<<<<<< HEAD
+<<<<<<< HEAD
       {router.pathname === "/" || router.pathname === "/nuevacuenta" ? (
+=======
+      {/* {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+>>>>>>> parent of 854e32b (Correccion front para imagenes)
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
-      ): null} 
-      {router.pathname === "/clientes" ? (
-        <div className="bg-clientes bg-gray-500 min-h-screen">
-          <div className="flex min-h-screen">
-            <Sidebar />
-
-            <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
-              <Header/>
-              {children}
-            </main>
-          </div>
+      ):null} */}
+      {router.pathname === "/" || router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+        <div className="bg-image min-h-screen flex flex-col justify-center ">
+          <div>{children}</div>
         </div>
-      ):null}
-       {router.pathname === "/productos" ? (
-        <div className="bg-productos bg-gray-500 min-h-screen">
-          <div className="flex min-h-screen">
-            <Sidebar />
-
-            <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
-              <Header/>
-              {children}
-            </main>
-          </div>
-        </div>
+<<<<<<< HEAD
       ):null}
        {router.pathname === "/pedidos" ? (
         <div className="bg-pedidos bg-gray-500 min-h-screen">
@@ -63,6 +49,10 @@ const Layout = ({ children }) => {
       ) : (
         <div className="bg-black min-h-screen">
 >>>>>>> parent of 33c329e (mejoras en el front-end)
+=======
+      ) : (
+        <div className="bg-gray-500 min-h-screen">
+>>>>>>> parent of 854e32b (Correccion front para imagenes)
           <div className="flex min-h-screen">
             <Sidebar />
 
@@ -72,7 +62,7 @@ const Layout = ({ children }) => {
             </main>
           </div>
         </div>
-      ):null}
+      )}
     </div>
   );
 };

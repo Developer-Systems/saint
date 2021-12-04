@@ -71,7 +71,7 @@ const NuevaCuenta = () => {
 
         setTimeout(() => {
           guardarMensaje(null);
-          router.push("/clientes"); //redireccionar hacia clientes
+          router.push("/login");
         }, 3000);
       } catch (error) {
         guardarMensaje(error.menssage.replace("GraphQL error:", ""));

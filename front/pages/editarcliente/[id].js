@@ -88,7 +88,7 @@ const EditarCliente = () => {
         "success"
       );
       //Redireccionar
-      router.push("/clientes");
+      router.push("/");
     } catch (error) {
       console.log(error);
     }

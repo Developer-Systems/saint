@@ -11,8 +11,12 @@ const AUTENTICAR_USUARIO = gql`
         token
       }
     }
+
 `;
+
+
 const Login = () => {
+
 
   //routing
   const router = useRouter ();
@@ -41,7 +45,7 @@ const Login = () => {
 
 <<<<<<< HEAD
       try {
-        const {data} = await autenticarUsuario ({
+        const{data} = await autenticarUsuario ({
           variables:{
             input:{
               email,
@@ -68,8 +72,7 @@ const Login = () => {
         //console.log(error);
 
         setTimeout (()=>{
-          guardarMensaje(null);
-          router.push('/');  
+          guardarMensaje(null);  
         },3000)
         
       }
