@@ -18,10 +18,6 @@ const Productos = () => {
   //Consultar los productos
   const { data, loading, error } = useQuery(OBTENER_PRODUCTOS);
   if (loading) return "Cargando...";
-
-  if (!data.obtenerProductos) {
-    return window.location.href = "/";
-  }
   return (
     <div>
       <Layout>

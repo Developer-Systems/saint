@@ -16,16 +16,21 @@ const OBTENER_USUARIO = gql`
 const Header = () => {
 
     const router = useRouter();
+
     // query de pollo 
     const { data, loading, error} = useQuery(OBTENER_USUARIO);
+
+    // console.log(data)
+    // console.log(loading)
+    // console.log(error)
+
     //proteger que no accedamos a data antes  de tener resultado
     if(loading) return null;
 
 
     // si no hay informacion
     if(!data){
-        // return router.push('/');
-        return window.location.href = "/";
+        return router.push('/');
     }
 
     const{ nombre, apellido } = data.obtenerUsuario;

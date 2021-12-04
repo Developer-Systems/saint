@@ -15,6 +15,7 @@ const OBTENER_CLIENTES_USUARIO = gql`
     }
   }
 `;
+
 const Index = () => {
   const router = useRouter();
 
@@ -22,11 +23,10 @@ const Index = () => {
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
 
   if (loading) return "Cargando...";
-
   if (!data.obtenerClientesVendedor) {
-    
-    return window.location.href = "/";
+    return router.push("/") ;
   }
+  if (error) return `Error ${error.message}`;
 
   return (
     <div>
