@@ -30,12 +30,21 @@ const Layout = ({ children }) => {
           referrerpolicy="no-referrer"
         />
       </Head>
+<<<<<<< HEAD
       {router.pathname === "/" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
       ) : (
         <div className="bg-pedidos bg-gray-500 min-h-screen">
+=======
+      {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
+        <div className="bg-black min-h-screen flex flex-col justify-center ">
+          <div>{children}</div>
+        </div>
+      ) : (
+        <div className="bg-black min-h-screen">
+>>>>>>> parent of 33c329e (mejoras en el front-end)
           <div className="flex min-h-screen">
             <Sidebar />
 

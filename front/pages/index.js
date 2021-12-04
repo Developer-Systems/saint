@@ -39,6 +39,7 @@ const Login = () => {
       //console.log(valores);
       const{email, password }= valores;
 
+<<<<<<< HEAD
       try {
         const {data} = await autenticarUsuario ({
           variables:{
@@ -75,6 +76,13 @@ const Login = () => {
 
     }
   })
+=======
+  //consulta de apollo
+  const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
+  // console.log(data);
+  // console.log(loading);
+  // console.log(error);
+>>>>>>> parent of 33c329e (mejoras en el front-end)
 
   const mostrarMensaje = () => {
     return(

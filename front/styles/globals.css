@@ -20,6 +20,7 @@ bg-black {
 text-green{
   color:#18d26e;
 }
+<<<<<<< HEAD
 
 .bg-image{
   background-image: url('../public/images/back.png');
@@ -42,3 +43,5 @@ text-green{
   font-size: 15rem;
   line-height: 1;
 }
+=======
+>>>>>>> parent of 33c329e (mejoras en el front-end)
