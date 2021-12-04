@@ -56,8 +56,6 @@ const NuevoPedido = () => {
 
     const { cliente, productos, total } = pedidoContext;
 
-    const { id } = cliente;
-
 
     // Mutation para crear un nuevo pedido
     const [ nuevoPedido ] = useMutation (NUEVO_PEDIDO, {
@@ -78,7 +76,7 @@ const NuevoPedido = () => {
 
     const validarPedido = () => {
 
-        return productos.every(producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0? " opacity-50 cursor-not-allowed " : " ";
+        return ! productos.every(producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0? " opacity-50 cursor-not-allowed " : " ";
     }
 
     const crearNuevoPedido = async() =>{
@@ -92,7 +90,6 @@ const NuevoPedido = () => {
         try {
             const { data } = await nuevoPedido ({
                 variables: {
-
                     input: {
                         cliente: id, 
                         total,
@@ -116,7 +113,7 @@ const NuevoPedido = () => {
             setMensaje(error.message.replace('GraphQL error: ', ' '));
 
             setTimeout(() =>{
-                setMensaje(nul1)
+                setMensaje(null)
             }, 3000);
         }
     }
@@ -134,7 +131,7 @@ const NuevoPedido = () => {
 
     return(
         <Layout>
-            <h1 className="text-2xl text-gray-800 font-light">Crear Nuevo Pedido</h1>
+            <h1 className="text-2xl text-white font-light">Crear Nuevo Pedido</h1>
 
             {mensaje && mostrarMensaje() }
 

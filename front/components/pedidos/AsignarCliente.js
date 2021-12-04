@@ -50,7 +50,7 @@ const AsignarCliente = () => {
         className="mt-3"
 
 
-             options = {cliente}
+             options = {obtenerClientesVendedor}
              //isMulti = {true}
              onChange = {opcion => seleccionarCliente(opcion) }
              //pasando el prop para que acepte los valores desde la base de datos

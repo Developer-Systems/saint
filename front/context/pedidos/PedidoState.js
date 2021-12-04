@@ -6,7 +6,7 @@ import{
     SELECCIONAR_CLIENTE, 
     SELECCIONAR_PRODUCTO, 
     CANTIDAD_PRODUCTOS,
-    ACTUALIZAR_TOTA
+    ACTUALIZAR_TOTAL
 } from '../../types'
 
 
@@ -58,7 +58,7 @@ const PedidoState = ({children}) => {
 
 
     // Modifica las cantidades de los productos
-    const cantidadProductos = NuevoProducto => {   
+    const cantidadProductos = nuevoProducto => {   
         dispatch({
             type: CANTIDAD_PRODUCTOS,
             payload: nuevoProducto
