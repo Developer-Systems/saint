@@ -35,17 +35,16 @@ const PedidoState = ({children}) => {
     const agregarProducto = productosSeleccionados => {
 
         let nuevoState;
-        if(state.productos. length > 0) {
+        if(state.productos.length > 0) {
             // Tomar del segundo arreglo, una copia para asignarlo al primero
             nuevoState = productosSeleccionados.map( producto => {
-
-                const nuevo0bjeto = state.productos.find( productoState => productoState.id === producto.id );
-                return {... producto, ...nuevo0bjeto }
+                const nuevoObjeto = state.productos.find( productoState => productoState.id === producto.id );
+                return {... producto, ...nuevoObjeto }
 
             })
 
         } else {
-        nuevoState = productosSeleccionados;
+            nuevoState = productosSeleccionados;
         }
 
 

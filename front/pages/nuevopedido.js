@@ -76,7 +76,7 @@ const NuevoPedido = () => {
 
     const validarPedido = () => {
 
-        return ! productos.every(producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0? " opacity-50 cursor-not-allowed " : " ";
+        return !productos.every(producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0 ? " opacity-50 cursor-not-allowed " : " ";
     }
 
     const crearNuevoPedido = async() =>{
@@ -146,7 +146,7 @@ const NuevoPedido = () => {
                     <button
                     type = "button"
                     className = {` bg-gray-800 w-full mt-5 p-2 text-white uppercase font-bold hover:bg-gray-900 ${validarPedido ()}`}
-                    onClick ={() => crearNuevoPedido () }
+                    onClick ={() => crearNuevoPedido() }
                     >Registrar Pedido</button>
 
 

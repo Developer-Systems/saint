@@ -20,9 +20,9 @@ export default ( state, action ) => {
             }
          case CANTIDAD_PRODUCTOS:
             return {
-                 ...state,
-                productos: state.productos.map( producto => producto.id === action.payload. id ? producto = action.payload : producto )
-             }
+                ...state,
+                productos: state.productos.map( producto => producto.id === action.payload.id ? producto = action.payload : producto )
+            }
             
          case ACTUALIZAR_TOTAL:
             return {

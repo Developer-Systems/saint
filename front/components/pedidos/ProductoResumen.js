@@ -12,11 +12,11 @@ const ProductoResumen = ({producto}) => {
 
     useEffect ( () => {
         actualizarCantidad ();
-        actualizarTotal
+        actualizarTotal();
     }, [ cantidad ])
 
     const actualizarCantidad = () => {
-        const nuevoProducto= {... producto, cantidad: Number( cantidad ) }
+        const nuevoProducto= {...producto, cantidad: Number( cantidad ) }
         cantidadProductos(nuevoProducto)
     }
 
@@ -38,7 +38,7 @@ const ProductoResumen = ({producto}) => {
                 type= "number"
                 placeholder ="Cantidad"
                 className ="shadow apperance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md: ml-4"
-                onChange = {e => setCantidad (e.target.value) }
+                onChange = { e => setCantidad(e.target.value) }
                 value= {cantidad}
 
              />
