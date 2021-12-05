@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/layout";
 import {
   BarChart,
@@ -11,42 +11,46 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { gql, useQuery} from '@apollo/client';
+import { gql, useQuery } from "@apollo/client";
 
 const MEJORES_VENDEDORES = gql`
-query MejoresVendedores {
-  mejoresVendedores {
-    total
-    vendedor {
-      nombre
-      email
+  query MejoresVendedores {
+    mejoresVendedores {
+      total
+      vendedor {
+        nombre
+        email
+      }
     }
   }
-}`;
-
+`;
 
 const MejoresVendedores = () => {
+  const { data, loading, error, startPolling, stopPolling } =
+    useQuery(MEJORES_VENDEDORES);
 
-  const {data, loading, error} = useQuery(MEJORES_VENDEDORES);
-  console.log(data);
-  console.log(loading);
-  console.log(error);
 
- if(loading) return 'cargando...';
- console.log(data.mejoresVendedores);
+  useEffect(() => {
+    startPolling(1000);
+    return() => {
+      startPolling();
+    }
+  }, [startPolling, startPolling])
 
- const {mejoresVendedores} = data;
+  if (loading) return "cargando...";
 
- const vendedorGrafica = [];
+  const { mejoresVendedores } = data;
 
- mejoresVendedores.map((vendedor, index) => {
-   vendedorGrafica[index] = {
-     ...vendedor.vendedor[0],
-     total: vendedor.total
-   }
- });
+  const vendedorGrafica = [];
 
- console.log(vendedorGrafica);
+  mejoresVendedores.map((vendedor, index) => {
+    vendedorGrafica[index] = {
+      ...vendedor.vendedor[0],
+      total: vendedor.total,
+    };
+  });
+
+  console.log(vendedorGrafica);
 
   return (
     <Layout>
