@@ -44,7 +44,7 @@ const Pedido = ({pedido})=>{
             cache.writeQuery({
                 query: OBTENER_PEDIDOS,
                 data: {
-                    obtenerPedidosVendedor: obtenerPedidosVendedor.filter( pedido=> pedido.id !==id )
+                    obtenerPedidosVendedor: obtenerPedidosVendedor.filter( pedido=> pedido.id !== id )
                 }
             })
         }
