@@ -15,7 +15,7 @@ const Sidebar = () => {
       <nav className="mt-5 list-none">
         <li className={router.pathname === "/" ? "bg-blue-800 p-2 text-white" : "p-2"}>
           <Link href="/">
-            <a className="text-bold font-black my-2 block px-5"> Clientes </a>
+            <a className="my-2 block px-5"> Clientes </a>
           </Link>
         </li>
         <li
@@ -24,7 +24,7 @@ const Sidebar = () => {
           }
         >
           <Link href="/pedidos">
-            <a className="text-bold font-black my-2 block px-5"> Pedidos </a>
+            <a className="my-2 block px-5"> Pedidos </a>
           </Link>
         </li>
         <li
@@ -33,7 +33,30 @@ const Sidebar = () => {
           }
         >
           <Link href="/productos">
-            <a className="text-bold font-black my-2 block px-5"> Productos </a>
+            <a className="my-2 block px-5"> Productos </a>
+          </Link>
+        </li>
+      </nav>
+      <div className="sm:mt-10">
+        <p className="text-black text-xl font-black px-5 mx-2 text-gray-500">Reportes</p>
+      </div>
+      <nav className="my-2 list-none">
+        <li
+          className={
+            router.pathname === "/mejores-vendedores" ? "bg-blue-800 p-2 text-white" : "p-2"
+          }
+        >
+          <Link href="/mejores-vendedores">
+            <a className="my-2 block px-5"> Mejores Vendedores </a>
+          </Link>
+        </li>
+        <li
+          className={
+            router.pathname === "/mejores-clientes" ? "bg-blue-800 p-2 text-white" : "p-2"
+          }
+        >
+          <Link href="/mejores-clientes">
+            <a className="my-2 block px-5"> Mejores Clientes </a>
           </Link>
         </li>
       </nav>
