@@ -19,85 +19,15 @@ const OBTENER_CLIENTES_USUARIO = gql`
 const Index = () => {
   const router = useRouter();
 
-<<<<<<< HEAD
-const Login = () => {
-
-
-  //routing
-  const router = useRouter ();
-
-  const[mensaje, guardarMensaje] = useState(null);
-
-  //Mutation para crear nuevos usuarios en apollo 
-
-  const [autenticarUsuario] = useMutation(AUTENTICAR_USUARIO);
-
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-                        .email('El email no es valido')
-                        .required('El email no puede estar vacio'),
-      password: Yup.string()
-                          .required('El password es obligatorio')
-    }),
-    onSubmit: async valores => {
-      //console.log(valores);
-      const{email, password }= valores;
-
-      try {
-        const{data} = await autenticarUsuario ({
-          variables:{
-            input:{
-              email,
-              password
-            }
-          }
-        });
-        console.log(data);
-        guardarMensaje('Autenticando...');
-
-        
-        //Guardar tokenn  en localstorage
-        const{ token } = data.autenticarUsuario;
-        localStorage.setItem('token', token);
-
-        //Redireccionar hacia clientes
-        setTimeout(()=>{
-          guardarMensaje(null);
-          router.push('/clientes')
-        }, 3000)
-
-      } catch (error) {
-        guardarMensaje(error.message.replace('GraphQL error: ', ''));
-        //console.log(error);
-
-        setTimeout (()=>{
-          guardarMensaje(null);  
-        },3000)
-        
-      }
-
-    }
-  })
-
-  const mostrarMensaje = () => {
-    return(
-      <div className = "bg-white py-2 px-3 w-full my-3 max-w-sm text-center mx-auto">
-          <p>{mensaje}</p>
-      </div>
-    )
-=======
   //consulta de apollo
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIO);
+  // console.log(data);
+  // console.log(loading);
+  // console.log(error);
 
   if (loading) return "Cargando...";
   if (!data.obtenerClientesVendedor) {
-    return router.push("/login");
->>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
+    return window.location.href = "/login";
   }
 
   return (

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Sidebar from "../components/Sidebar";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
+import 'tailwindcss/dist/tailwind.min.css'
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -23,45 +24,14 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         ></link>
       </Head>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 918c1a0 (revert 3)
-      {router.pathname === "/" || router.pathname === "/nuevacuenta" ? (
-=======
-      {/* {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
->>>>>>> parent of 854e32b (Correccion front para imagenes)
-        <div className="bg-image min-h-screen flex flex-col justify-center ">
-          <div>{children}</div>
-        </div>
-      ):null} */}
       {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
         <div className="bg-image min-h-screen flex flex-col justify-center ">
-          <div>{children}</div>
-        </div>
-<<<<<<< HEAD
-      ):null}
-       {router.pathname === "/pedidos" ? (
-        <div className="bg-pedidos bg-gray-500 min-h-screen">
-<<<<<<< HEAD
-=======
-      {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
-        <div className="bg-black min-h-screen flex flex-col justify-center ">
           <div>{children}</div>
         </div>
       ) : (
         <div className="bg-black min-h-screen">
->>>>>>> parent of 33c329e (mejoras en el front-end)
-=======
-      ) : (
-        <div className="bg-gray-500 min-h-screen">
->>>>>>> parent of 854e32b (Correccion front para imagenes)
-=======
->>>>>>> parent of 918c1a0 (revert 3)
           <div className="flex min-h-screen">
             <Sidebar />
-
             <main className="sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5">
               <Header/>
               {children}

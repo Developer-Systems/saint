@@ -2,6 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import { gql, useMutation } from "@apollo/client";
 import Router from "next/router";
+import 'tailwindcss/dist/tailwind.min.css'
 
 const ELIMINAR_CLIENTE = gql`
   mutation eliminarCliente($id: ID!) {

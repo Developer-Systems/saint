@@ -14,10 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
-bg-black {
+.bg-black {
   background-color: #100e17;
 }
-text-green{
+.text-green{
   color:#18d26e;
 }
 
@@ -27,20 +27,17 @@ text-green{
   background-size: cover;
   background-position: center;
   height: 100vh;
-  
-<<<<<<< HEAD
+}
+
+.bg-404{
+  background-image: url('../public/images/error.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
 .text-15xl {
   font-size: 15rem;
   line-height: 1;
-<<<<<<< HEAD
 }
-=======
->>>>>>> parent of 33c329e (mejoras en el front-end)
-=======
-}
->>>>>>> parent of b399220 (Correccion de ruta de login y clientes)
-=======
-}
->>>>>>> parent of 918c1a0 (revert 3)
