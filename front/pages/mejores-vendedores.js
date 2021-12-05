@@ -3,13 +3,11 @@ import Layout from "../components/layout";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 import { gql, useQuery } from "@apollo/client";
 
