@@ -75,15 +75,12 @@ const NuevoPedido = () => {
     })
 
     const validarPedido = () => {
-
-        return !productos.every(producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0 ? " opacity-50 cursor-not-allowed " : " ";
+        return !productos.every( producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0 ? " opacity-50 cursor-not-allowed " : " ";
     }
 
-    const crearNuevoPedido = async() =>{
-
+    const crearNuevoPedido = async () => {
         const { id } = cliente;
-
-
+        
         // Remover lo no deseado de productos
         const pedido = productos.map(( {__typename, existencia, ...producto} ) => producto )
 
@@ -97,7 +94,7 @@ const NuevoPedido = () => {
                     }
                 }
             });
-
+            console.log(data)
 
             // Redireccionar
             router.push('/pedidos');
@@ -107,8 +104,7 @@ const NuevoPedido = () => {
                 'El pedido se registró correctamente',
                 'success'
             )
-
-
+                
         } catch (error) {
             setMensaje(error.message.replace('GraphQL error: ', ' '));
 
@@ -133,7 +129,7 @@ const NuevoPedido = () => {
         <Layout>
             <h1 className="text-2xl text-white font-light">Crear Nuevo Pedido</h1>
 
-            {mensaje && mostrarMensaje() }
+            {mensaje && mostrarMensaje( ) }
 
 
             <div className ="flex justify-center mt-5">
@@ -145,7 +141,7 @@ const NuevoPedido = () => {
 
                     <button
                     type = "button"
-                    className = {` bg-gray-800 w-full mt-5 p-2 text-white uppercase font-bold hover:bg-gray-900 ${validarPedido ()}`}
+                    className = {` bg-gray-800 w-full mt-5 p-2 text-white uppercase font-bold hover:bg-gray-900 ${ validarPedido() }`}
                     onClick ={() => crearNuevoPedido() }
                     >Registrar Pedido</button>
 

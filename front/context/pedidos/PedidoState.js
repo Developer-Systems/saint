@@ -39,8 +39,7 @@ const PedidoState = ({children}) => {
             // Tomar del segundo arreglo, una copia para asignarlo al primero
             nuevoState = productosSeleccionados.map( producto => {
                 const nuevoObjeto = state.productos.find( productoState => productoState.id === producto.id );
-                return {... producto, ...nuevoObjeto }
-
+                return {...producto, ...nuevoObjeto }
             })
 
         } else {
