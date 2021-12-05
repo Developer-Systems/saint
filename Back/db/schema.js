@@ -42,7 +42,7 @@ const typeDefs = gql`
     estado: EstadoPedido
   }
 
-  type PedidoGrupo {
+  type PedidoGrupo{
     id: ID
     cantidad: Int
     nombre: String
@@ -66,6 +66,11 @@ const typeDefs = gql`
     password: String!
   }
 
+  input AutenticarInput{
+    email: String!
+    password: String!
+  }
+
   input ProductoInput {
     nombre: String!
     existencia: Int!
@@ -78,11 +83,6 @@ const typeDefs = gql`
     empresa: String!
     email: String!
     telefono: String!
-  }
-
-  input AutenticarInput {
-    email: String!
-    password: String!
   }
 
   input PedidoProductoInput {
@@ -111,7 +111,7 @@ const typeDefs = gql`
 
     #Productos
     obtenerProductos: [Producto]
-    obtenerProducto(id: ID!): Producto
+    obtenerProducto(id: ID!) : Producto
 
     #Clientes
     obtenerClientes: [Cliente]
@@ -121,34 +121,34 @@ const typeDefs = gql`
     #Pedidos
     obtenerPedidos: [Pedido]
     obtenerPedidosVendedor: [Pedido]
-    obtenerPedido(id: ID!): Pedido
+    obtenerPedido(id: ID!) : Pedido
     obtenerPedidosEstado(estado: String!): [Pedido]
 
     #Busquedas Avanzadas
     mejoresClientes: [TopCliente]
     mejoresVendedores: [TopVendedor]
-    buscarProducto(texto: String!): [Producto]
+    buscarProducto(texto: String!) : [Producto]
   }
 
   type Mutation {
     # Usuarios
-    nuevoUsuario(input: UsuarioInput): Usuario
-    autenticarUsuario(input: AutenticarInput): Token
+    nuevoUsuario(input: UsuarioInput) : Usuario
+    autenticarUsuario(input: AutenticarInput) : Token
 
     #Productos
-    nuevoProducto(input: ProductoInput): Producto
-    actualizarProducto(id: ID!, input: ProductoInput): Producto
-    eliminarProducto(id: ID!): String
+    nuevoProducto(input: ProductoInput) : Producto
+    actualizarProducto( id: ID!, input : ProductoInput ) : Producto
+    eliminarProducto( id: ID! ) : String
 
     #Clientes
-    nuevoCliente(input: ClienteInput): Cliente
+    nuevoCliente(input: ClienteInput) : Cliente
     actualizarCliente(id: ID!, input: ClienteInput): Cliente
-    eliminarCliente(id: ID!): String
+    eliminarCliente(id: ID!) : String
 
     #Pedidos
     nuevoPedido(input: PedidoInput): Pedido
-    actualizarPedido(id: ID!, input: PedidoInput): Pedido
-    eliminarPedido(id: ID!): String
+    actualizarPedido(id: ID!, input: PedidoInput ) : Pedido
+    eliminarPedido(id: ID!) : String
   }
 `;
 
