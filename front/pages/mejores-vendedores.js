@@ -31,9 +31,9 @@ const MejoresVendedores = () => {
   useEffect(() => {
     startPolling(1000);
     return () => {
-      startPolling();
+      stopPolling();
     };
-  }, [startPolling, startPolling]);
+  }, [startPolling, stopPolling]);
 
   if (loading) return "cargando...";
 

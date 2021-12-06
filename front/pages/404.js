@@ -1,4 +1,5 @@
 import 'tailwindcss/dist/tailwind.min.css'
+import Link from "next/link";
 const NotFound = () => {
   return (
       <div className="w-screen mx-auto w">
