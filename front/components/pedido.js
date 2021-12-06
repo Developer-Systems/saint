@@ -1,10 +1,9 @@
 
-import React, { useState, useEffect }from 'react';
+import React, {useState, useEffect}from 'react';
 import { gql, useMutation } from '@apollo/client';
 import Swal from 'sweetalert2'
 
-
-const ACTUALIZAR_PEDIDO =gql`
+const ACTUALIZAR_PEDIDO = gql`
     mutation actualizarPedido($id: ID!, $input: PedidoInput ) {
         actualizarPedido(id: $id, input: $input) {
             estado
@@ -165,6 +164,7 @@ const Pedido = ({pedido})=>{
                 </select>
 
             </div>
+            <div>
             <h2 className= "text-gray-800 font-bold mt-2">Resumen del Pedido</h2>
                 { pedido.pedido.map( articulo => (
                 <div key= {articulo.id} className= "mt-4">
@@ -196,7 +196,7 @@ const Pedido = ({pedido})=>{
                 </svg>
                 </button>
 
-             <div>
+            
 
             </div>
         </div>
