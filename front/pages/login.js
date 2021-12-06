@@ -23,7 +23,7 @@ const Login = () => {
 
   const[mensaje, guardarMensaje] = useState(null);
 
-  //Mutation para crear nuevos usuarios en apollo 
+  //Mutation para crear nuevos usuarios en apollo
 
   const [autenticarUsuario] = useMutation(AUTENTICAR_USUARIO);
 
@@ -55,16 +55,18 @@ const Login = () => {
         console.log(data);
         guardarMensaje('Autenticando...');
 
-        
         //Guardar tokenn  en localstorage
-        const{ token } = data.autenticarUsuario;
-        localStorage.setItem('token', token);
+        setTimeout(() => {
+          const{ token } = data.autenticarUsuario;
+          localStorage.setItem('token', token);
+
+        }, 1000);
 
         //Redireccionar hacia clientes
         setTimeout(()=>{
           guardarMensaje(null);
           router.push('/')
-        }, 3000)
+        }, 2000)
 
       } catch (error) {
         guardarMensaje(error.message.replace('GraphQL error: ', ''));
