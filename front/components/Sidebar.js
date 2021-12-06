@@ -15,7 +15,7 @@ const Sidebar = () => {
       <nav className="mt-5 list-none">
         <li className={router.pathname === "/" ? "bg-blue-800 p-2 text-white" : "p-2"}>
           <Link href="/">
-            <a className="my-2 block px-5"> Clientes </a>
+            <a className="font-medium my-2 block px-5"> Clientes </a>
           </Link>
         </li>
         <li
@@ -24,7 +24,7 @@ const Sidebar = () => {
           }
         >
           <Link href="/pedidos">
-            <a className="my-2 block px-5"> Pedidos </a>
+            <a className="font-medium my-2 block px-5"> Pedidos </a>
           </Link>
         </li>
         <li
@@ -33,7 +33,7 @@ const Sidebar = () => {
           }
         >
           <Link href="/productos">
-            <a className="my-2 block px-5"> Productos </a>
+            <a className="font-medium my-2 block px-5"> Productos </a>
           </Link>
         </li>
       </nav>
@@ -47,7 +47,7 @@ const Sidebar = () => {
           }
         >
           <Link href="/mejores-vendedores">
-            <a className="my-2 block px-5"> Mejores Vendedores </a>
+            <a className="font-medium my-2 block px-5"> Mejores Vendedores </a>
           </Link>
         </li>
         <li
@@ -56,7 +56,7 @@ const Sidebar = () => {
           }
         >
           <Link href="/mejores-clientes">
-            <a className="my-2 block px-5"> Mejores Clientes </a>
+            <a className="font-medium my-2 block px-5"> Mejores Clientes </a>
           </Link>
         </li>
       </nav>
