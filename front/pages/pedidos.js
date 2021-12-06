@@ -1,6 +1,6 @@
 import Pedido from '../components/Pedido';
 import Layout from '../components/Layout';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { gql, useQuery } from '@apollo/client'
 
 
