@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import PedidoContext from "./PedidoContext";
 import PedidoReducer from './PedidoReducer'
-
+//mio
 import{
     SELECCIONAR_CLIENTE, 
     SELECCIONAR_PRODUCTO, 
@@ -19,7 +19,7 @@ const PedidoState = ({children}) => {
         total: 0 
     }
 
-    const [ state, dispatch ] = useReducer( PedidoReducer, initialState);
+    const [ state, dispatch ] = useReducer(PedidoReducer, initialState);
 
     //Modifica el cliente
     const agregarCliente = cliente => {
@@ -35,13 +35,12 @@ const PedidoState = ({children}) => {
     const agregarProducto = productosSeleccionados => {
 
         let nuevoState;
-        if(state.productos.length > 0) {
+        if(state.productos.length > 0 ) {
             // Tomar del segundo arreglo, una copia para asignarlo al primero
             nuevoState = productosSeleccionados.map( producto => {
                 const nuevoObjeto = state.productos.find( productoState => productoState.id === producto.id );
                 return {...producto, ...nuevoObjeto }
-            })
-
+            } )
         } else {
             nuevoState = productosSeleccionados;
         }
@@ -70,11 +69,9 @@ const PedidoState = ({children}) => {
    }
 
 
-
-
     return (
         <PedidoContext.Provider
-            value = {{
+            value={{
                 productos: state.productos,
                 cliente: state.cliente,
                 total: state.total,
@@ -89,7 +86,5 @@ const PedidoState = ({children}) => {
 
     )
 }
-
-
 
 export default  PedidoState;

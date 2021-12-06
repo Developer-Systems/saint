@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import Layout from '../components/Layout';
 import AsignarCliente from '../components/Pedidos/AsignarCliente'
 import AsignarProductos from '../components/Pedidos/AsignarProductos' 
@@ -7,7 +7,7 @@ import Total from '../components/pedidos/Total';
 import { gql, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
-
+//mio
 //Context de pedidos
 import PedidoContext from '../context/pedidos/PedidoContext';
 
@@ -29,7 +29,7 @@ const OBTENER_PEDIDOS = gql`
             cantidad
             nombre
         }
-        cliente{
+        cliente {
             id
             nombre
             apellido
@@ -75,7 +75,7 @@ const NuevoPedido = () => {
     })
 
     const validarPedido = () => {
-        return !productos.every( producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0 ? " opacity-50 cursor-not-allowed " : " ";
+        return !productos.every( producto => producto.cantidad > 0 ) || total === 0 || cliente.length === 0 ? " opacity-50 cursor-not-allowed " : " ";
     }
 
     const crearNuevoPedido = async () => {
