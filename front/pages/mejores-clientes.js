@@ -66,7 +66,7 @@ const MejoresClientes = () => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="nombre" />
+        <XAxis dataKey="empresa" />
         <YAxis />
         <Tooltip />
         <Legend />
