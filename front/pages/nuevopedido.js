@@ -75,7 +75,7 @@ const NuevoPedido = () => {
     })
 
     const validarPedido = () => {
-        return !productos.every( producto => producto.cantidad > 0 ) || total === 0 || cliente.lenght === 0 ? " opacity-50 cursor-not-allowed " : " ";
+        return !productos.every( producto => producto.cantidad > 0 ) || total === 0 || cliente.length === 0 ? " opacity-50 cursor-not-allowed " : " ";
     }
 
     const crearNuevoPedido = async () => {
