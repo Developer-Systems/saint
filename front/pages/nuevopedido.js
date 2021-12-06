@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import AsignarCliente from '../components/Pedidos/AsignarCliente'
 import AsignarProductos from '../components/Pedidos/AsignarProductos' 
 import ResumenPedido from '../components/Pedidos/ResumenPedido' 
-import Total from '../components/pedidos/Total';
+import Total from '../components/Pedidos/Total';
 import { gql, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';

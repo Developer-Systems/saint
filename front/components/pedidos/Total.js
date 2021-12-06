@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import PedidoContext from '../../context/pedidos/PedidoContext';
+import PedidoContext from '../../context/Pedidos/PedidoContext';
 
 
 const Total = () => {
