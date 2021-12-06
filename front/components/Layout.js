@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Head>
-        <title>SaINT</title>
+        <title>SAINT</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           rel="stylesheet"

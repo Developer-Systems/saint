@@ -10,7 +10,9 @@ const Sidebar = () => {
   return (
     <aside className="bg-white sm:w-1/3 xl:w-1/5 sm:min-h-screen">
       <div>
-        <p className="text-black text-2xl font-black p-5 logo">SaINT</p>
+        <p className="text-black text-2xl font-black p-5 logo"> 
+         SAINT
+         </p>
       </div>
       <nav className="mt-5 list-none">
         <li className={router.pathname === "/" ? "bg-blue-800 p-2 text-white" : "p-2"}>
